@@ -712,13 +712,33 @@ async function confirmPayment(){
 
   // Update Supabase — Payment_Done = true + save UTR
   try {
-    await fetch(`${SUPABASE_URL}/rest/v1/Bookings?email=eq.${encodeURIComponent(email)}&Service=eq.${encodeURIComponent(svc)}`,{
-      method:'PATCH',
-      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON,'Authorization':`Bearer ${SUPABASE_ANON}`,'Prefer':'return=minimal'},
-      body:JSON.stringify({"Payment_Done":true,"Message":utr})
-    });
-    console.log('✅ Supabase updated — Payment_Done=true');
-  } catch(e){console.warn('Supabase update failed:',e);}
+    const email = document.getElementById('bEmail').value.trim();
+    const utr   = document.getElementById('utrInput').value.trim();
+    const svc   = document.getElementById('bService').value;
+
+    // Find the booking ID first, then update by ID for precision
+    const findRes = await fetch(
+      `${SUPABASE_URL}/rest/v1/Bookings?email=eq.${encodeURIComponent(email)}&Service=eq.${encodeURIComponent(svc)}&order=created_at.desc&limit=1&select=id`,
+      { headers: { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}` } }
+    );
+    const rows = await findRes.json();
+    if (rows && rows.length > 0) {
+      const bookingId = rows[0].id;
+      await fetch(`${SUPABASE_URL}/rest/v1/Bookings?id=eq.${bookingId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON,
+          'Authorization': `Bearer ${SUPABASE_ANON}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ "Payment_Done": true, "Message": utr })
+      });
+      console.log('✅ Supabase updated — Payment_Done=true for id:', bookingId);
+    } else {
+      console.warn('⚠️ No matching booking found to update');
+    }
+  } catch(e) { console.warn('Supabase update failed:', e); }
 
   // Send email via EmailJS
   try {
