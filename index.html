@@ -414,7 +414,7 @@ footer a{color:var(--gold);text-decoration:none}
         </div>
         <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:1rem">Open PhonePe / GPay / any UPI app → Scan QR → Pay exact amount</p>
         <!-- Step 1: Last 4 digits -->
-        <div class="modal-group" style="text-align:left;margin-top:0.8rem">
+        <div style="text-align:left;margin-top:0.8rem">
           <label style="font-size:0.74rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:0.4rem">Step 1 — Last 4 digits of your UPI phone number *</label>
           <div style="display:flex;gap:0.5rem">
             <input type="tel" id="phoneLast4" maxlength="4" placeholder="e.g. 3939" style="flex:1;background:var(--card);border:0.5px solid var(--border);border-radius:3px;padding:0.65rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;letter-spacing:0.2em;outline:none;transition:border-color 0.2s;text-align:center"/>
@@ -423,8 +423,9 @@ footer a{color:var(--gold);text-decoration:none}
           <p style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem">Enter the last 4 digits of the phone number you paid from</p>
           <div id="verifyMsg" style="display:none;font-size:0.78rem;margin-top:0.5rem;padding:0.5rem 0.7rem;border-radius:3px"></div>
         </div>
-        <!-- Step 2: UTR -->
-        <div id="utrSection" style="display:block;text-align:left;margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--border)">
+
+        <!-- Step 2: UTR — always visible -->
+        <div style="text-align:left;margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--border)">
           <label style="font-size:0.74rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:0.4rem">Step 2 — Enter UTR / Transaction ID *</label>
           <div style="display:flex;gap:0.5rem">
             <input type="text" id="utrInput" maxlength="20" placeholder="12-digit UTR e.g. 426812345678" style="flex:1;background:var(--card);border:0.5px solid var(--border);border-radius:3px;padding:0.65rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s"/>
@@ -643,7 +644,6 @@ async function proceedToPayment(){
 
 function onLast4Input(){
   document.getElementById('verifyMsg').style.display='none';
-  document.getElementById('utrSection').style.display='none';
   const btn=document.getElementById('confirmPayBtn');
   btn.disabled=true; btn.style.opacity='0.4'; btn.style.cursor='not-allowed'; btn.style.pointerEvents='none'; btn.style.background='var(--gold)';
 }
@@ -679,7 +679,6 @@ function startScanSimulation(){
   if(btn){btn.disabled=true;btn.style.opacity='0.4';btn.style.cursor='not-allowed';btn.style.pointerEvents='none';btn.style.background='var(--gold)';btn.textContent="I've Paid — Confirm Booking ✓";}
   fields.forEach(id=>{const el=document.getElementById(id);if(el){el.value='';el.style.borderColor='';}});
   msgs.forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none';});
-  const utrSection=document.getElementById('utrSection');if(utrSection)utrSection.style.display='block';
   const err=document.getElementById('step2Error');if(err)err.style.display='none';
 }
 
