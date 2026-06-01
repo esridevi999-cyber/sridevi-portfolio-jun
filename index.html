@@ -10,15 +10,11 @@
 :root{--navy:#0b1120;--navy2:#111827;--gold:#c9a84c;--gold2:#e8c97a;--muted:#94a3b8;--card:#161f30;--border:rgba(201,168,76,0.18);--text:#e8e8e8;--text2:#94a3b8}
 html{scroll-behavior:smooth}
 body{background:var(--navy);color:var(--text);font-family:'Inter',sans-serif;line-height:1.7;overflow-x:hidden}
-
-/* NAV */
 nav{position:fixed;top:0;width:100%;z-index:200;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(11,17,32,0.92);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
 .nav-logo{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold)}
 .nav-links{display:flex;gap:1.6rem;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--gold)}
-
-/* HERO */
 #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(201,168,76,0.07) 0%,transparent 70%);pointer-events:none}
 .hero-content{display:flex;flex-direction:column;align-items:center;gap:0;max-width:900px}
@@ -40,15 +36,11 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:1rem 2.5rem;display:flex
 .btn-outline:hover{background:rgba(201,168,76,0.1)}
 .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollpulse 2s ease-in-out infinite;margin:1.8rem auto 0}
 @keyframes scrollpulse{0%,100%{opacity:0.3}50%{opacity:1}}
-
-/* SECTIONS */
 section{padding:5rem 2rem}
 .container{max-width:1060px;margin:0 auto}
 .section-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:0.8rem}
 .section-divider{width:42px;height:1px;background:var(--gold);margin-bottom:2.2rem;opacity:0.6}
-
-/* ABOUT */
 #about{background:var(--navy2)}
 .about-grid{display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:start}
 .profile-pic-box{width:260px;height:300px;border-radius:6px;border:1px dashed rgba(201,168,76,0.4);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;cursor:pointer;position:relative;overflow:hidden;transition:border-color 0.2s}
@@ -64,22 +56,16 @@ section{padding:5rem 2rem}
 .stats-row{display:flex;gap:1.4rem;margin-top:1.8rem;padding-top:1.8rem;border-top:0.5px solid var(--border);flex-wrap:wrap}
 .stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold)}
 .stat-lbl{font-size:0.68rem;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase}
-
-/* AWARDS STRIP */
 .awards-strip{background:var(--navy);padding:2rem 2rem;border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
 .awards-label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:1.2rem}
 .awards-grid{display:flex;flex-wrap:wrap;gap:0.8rem;justify-content:center}
 .award-pill{display:flex;align-items:center;gap:0.45rem;background:var(--card);border:0.5px solid var(--border);border-radius:3px;padding:0.5rem 0.9rem;font-size:0.79rem;color:var(--text2)}
-
-/* SERVICES */
 .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
 .service-card{background:var(--card);border:0.5px solid var(--border);border-radius:4px;padding:1.6rem 1.3rem;transition:border-color 0.2s,transform 0.2s}
 .service-card:hover{border-color:rgba(201,168,76,0.5);transform:translateY(-3px)}
 .service-icon{font-size:1.4rem;margin-bottom:0.8rem;display:block}
 .service-card h3{font-size:0.9rem;font-weight:600;color:#fff;margin-bottom:0.45rem}
 .service-card p{font-size:0.81rem;color:var(--muted);line-height:1.6}
-
-/* EXPERIENCE */
 #experience{background:var(--navy2)}
 .exp-timeline{display:flex;flex-direction:column;gap:0}
 .exp-item{display:grid;grid-template-columns:180px 1fr;gap:2rem;padding:1.4rem 0;border-bottom:0.5px solid var(--border)}
@@ -88,8 +74,6 @@ section{padding:5rem 2rem}
 .exp-company{font-size:0.82rem;color:var(--gold);margin-bottom:0.15rem;font-weight:500}
 .exp-role{font-size:0.95rem;color:#fff;font-weight:600;margin-bottom:0.3rem}
 .exp-desc{font-size:0.82rem;color:var(--text2);line-height:1.6}
-
-/* GALLERY */
 #gallery{background:var(--navy);overflow:hidden}
 .gallery-track-wrap{overflow:hidden;position:relative;margin-top:0}
 .gallery-track{display:flex;gap:1rem;width:max-content;animation:galleryScroll 60s linear infinite}
@@ -98,15 +82,11 @@ section{padding:5rem 2rem}
 .gallery-item img{width:100%;height:100%;object-fit:cover;border-radius:4px}
 .gallery-placeholder-icon{font-size:1.8rem;color:rgba(201,168,76,0.3)}
 .gallery-placeholder-text{font-size:0.7rem;color:var(--muted)}
-.gallery-add-btn{width:220px;height:160px;border-radius:4px;border:1px dashed rgba(201,168,76,0.3);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;flex-shrink:0;cursor:pointer;transition:border-color 0.2s}
-.gallery-add-btn:hover{border-color:var(--gold)}
-.gallery-add-icon{font-size:1.5rem;color:rgba(201,168,76,0.5)}
-.gallery-add-text{font-size:0.72rem;color:var(--muted)}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0.4)}50%{box-shadow:0 0 0 8px rgba(201,168,76,0)}}
+@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes testiScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 #galleryFileInput{display:none}
-
-/* SKILLS */
 .skills-outer{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
 .skill-group h3{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
 .skill-bar{margin-bottom:0.9rem}
@@ -117,25 +97,17 @@ section{padding:5rem 2rem}
 .tools-grid{display:flex;flex-wrap:wrap;gap:0.5rem}
 .tool-pill{padding:0.28rem 0.8rem;border:0.5px solid var(--border);border-radius:20px;font-size:0.76rem;color:var(--muted);transition:all 0.2s}
 .tool-pill:hover{border-color:var(--gold);color:var(--gold)}
-
-/* TESTIMONIALS */
 #testimonials{background:var(--navy2);overflow:hidden}
 .testi-track-wrap{overflow:hidden;position:relative;margin-top:1rem}
 .testi-track{display:flex;gap:1.2rem;width:max-content;animation:testiScroll 40s linear infinite}
 .testi-track:hover{animation-play-state:paused}
 .testi-card{width:320px;background:var(--card);border:0.5px solid var(--border);border-radius:4px;padding:1.6rem;flex-shrink:0}
-.testi-placeholder{width:320px;height:200px;background:var(--card);border:1px dashed rgba(201,168,76,0.25);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;flex-shrink:0;cursor:pointer}
-.testi-placeholder-icon{font-size:1.4rem;color:rgba(201,168,76,0.3)}
-.testi-placeholder-text{font-size:0.72rem;color:var(--muted)}
 .stars{color:var(--gold);font-size:0.72rem;margin-bottom:0.8rem;letter-spacing:2px}
 .testi-quote{font-size:0.86rem;color:var(--text2);line-height:1.7;margin-bottom:1.2rem;font-style:italic}
 .testi-author{display:flex;align-items:center;gap:0.6rem}
 .testi-avatar{width:34px;height:34px;border-radius:50%;background:rgba(201,168,76,0.15);display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:var(--gold);font-weight:600;flex-shrink:0}
 .testi-name{font-size:0.86rem;font-weight:600;color:#fff}
 .testi-role{font-size:0.73rem;color:var(--muted)}
-@keyframes galleryScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* CONTACT */
 #contact{background:var(--navy)}
 .contact-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem;align-items:start}
 .contact-links{display:flex;flex-direction:column;gap:0.9rem;margin-top:1.5rem}
@@ -150,8 +122,6 @@ section{padding:5rem 2rem}
 .form-group textarea{min-height:90px;resize:vertical}
 .form-submit{width:100%;background:var(--gold);color:var(--navy);padding:0.75rem;border:none;border-radius:3px;font-size:0.86rem;font-weight:600;cursor:pointer;letter-spacing:0.04em;transition:background 0.2s}
 .form-submit:hover{background:var(--gold2)}
-
-/* BOOKING MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:500;display:flex;align-items:center;justify-content:center;padding:1rem}
 .modal-box{background:var(--navy2);border:0.5px solid var(--border);border-radius:8px;padding:2.5rem;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;position:relative}
 .modal-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;line-height:1}
@@ -169,16 +139,11 @@ section{padding:5rem 2rem}
 .price-note{font-size:0.72rem;color:var(--text2);margin-top:0.2rem}
 .pay-btn{width:100%;background:var(--gold);color:var(--navy);padding:0.85rem;border:none;border-radius:3px;font-size:0.9rem;font-weight:600;cursor:pointer;letter-spacing:0.04em;transition:background 0.2s;margin-top:0.5rem}
 .pay-btn:hover{background:var(--gold2)}
-.pay-note{font-size:0.72rem;color:var(--muted);text-align:center;margin-top:0.6rem}
-.pay-gateway-note{font-size:0.73rem;color:var(--text2);text-align:center;margin-top:0.4rem;padding:0.5rem;background:rgba(255,255,255,0.03);border-radius:3px}
-
 footer{border-top:0.5px solid var(--border);padding:1.6rem;text-align:center;color:var(--muted);font-size:0.78rem}
 footer a{color:var(--gold);text-decoration:none}
-
 @media(max-width:760px){
   .about-grid,.contact-inner,.skills-outer{grid-template-columns:1fr}
   .exp-item{grid-template-columns:1fr}
-  .exp-date{font-size:0.72rem}
   nav{padding:0.8rem 1rem}
   .nav-links{gap:0.9rem}
   .nav-links a{font-size:0.7rem}
@@ -200,7 +165,6 @@ footer a{color:var(--gold);text-decoration:none}
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
@@ -224,13 +188,12 @@ footer a{color:var(--gold);text-decoration:none}
     </div>
     <div class="btn-row">
       <button class="btn-primary" onclick="openBooking()">Book a Session</button>
-      <a href="#projects" class="btn-outline">See My Impact</a>
+      <a href="#about" class="btn-outline">See My Impact</a>
     </div>
     <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="about-grid">
@@ -265,7 +228,6 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="container">
     <div class="section-label">What I do</div>
@@ -282,42 +244,22 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
     <div class="section-label">Career journey</div>
     <h2 class="section-title">Experience</h2>
     <div class="section-divider"></div>
     <div class="exp-timeline">
-      <div class="exp-item">
-        <div class="exp-date">Sep 2025 – Present</div>
-        <div><div class="exp-company">ZenithWorks.AI</div><div class="exp-role">Co-Founder – AI Automation & Workflows</div><div class="exp-desc">Designed 30+ AI agents, RAG pipelines, and n8n automations. Achieved ~40% faster GTM, ~60% overhead reduction, ~85% faster customer responses. Mentored 4,000+ professionals.</div></div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">Jul 2023 – Feb 2025</div>
-        <div><div class="exp-company">Saxon AI</div><div class="exp-role">Vice President – Microsoft Azure Cloud Practice</div><div class="exp-desc">Owned Azure service line end-to-end: delivery governance, solutioning, practice growth, and strategic alliances.</div></div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">Oct 2021 – Jul 2023</div>
-        <div><div class="exp-company">Microsoft</div><div class="exp-role">SEM – Azure Cloud Support Engineering</div><div class="exp-desc">Raised CSAT 4.76 → 4.94, IR >96%, escalations ~10 → ~2/month, Azure Support Center adoption >95%.</div></div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">Mar 2021 – Oct 2021</div>
-        <div><div class="exp-company">Sunera Technologies</div><div class="exp-role">Associate Vice President – Cloud Services</div><div class="exp-desc">AWS partner uplift Standard → Advanced tier. ~$240K annual cloud savings. AWS practice operating model design.</div></div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">Dec 2013 – Nov 2019</div>
-        <div><div class="exp-company">NTT DATA Global Delivery Services</div><div class="exp-role">IT Director – Cloud Infrastructure & Security</div><div class="exp-desc">$25M savings & $50M revenue impact. Directed 100+ professionals. 60+ RFPs. Insurance & Healthcare verticals.</div></div>
-      </div>
-      <div class="exp-item">
-        <div class="exp-date">2001 – 2009</div>
-        <div><div class="exp-company">Tech Mahindra (Satyam)</div><div class="exp-role">Technical Project Manager / DBA</div><div class="exp-desc">First-ever female DBA at Tech Mahindra. >99% SLA for GE, Cisco, British Petroleum. STAR Performer 6 consecutive years (5/5).</div></div>
-      </div>
+      <div class="exp-item"><div class="exp-date">Sep 2025 – Present</div><div><div class="exp-company">ZenithWorks.AI</div><div class="exp-role">Co-Founder – AI Automation & Workflows</div><div class="exp-desc">Designed 30+ AI agents, RAG pipelines, and n8n automations. Achieved ~40% faster GTM, ~60% overhead reduction, ~85% faster customer responses. Mentored 4,000+ professionals.</div></div></div>
+      <div class="exp-item"><div class="exp-date">Jul 2023 – Feb 2025</div><div><div class="exp-company">Saxon AI</div><div class="exp-role">Vice President – Microsoft Azure Cloud Practice</div><div class="exp-desc">Owned Azure service line end-to-end: delivery governance, solutioning, practice growth, and strategic alliances.</div></div></div>
+      <div class="exp-item"><div class="exp-date">Oct 2021 – Jul 2023</div><div><div class="exp-company">Microsoft</div><div class="exp-role">SEM – Azure Cloud Support Engineering</div><div class="exp-desc">Raised CSAT 4.76 → 4.94, IR >96%, escalations ~10 → ~2/month, Azure Support Center adoption >95%.</div></div></div>
+      <div class="exp-item"><div class="exp-date">Mar 2021 – Oct 2021</div><div><div class="exp-company">Sunera Technologies</div><div class="exp-role">Associate Vice President – Cloud Services</div><div class="exp-desc">AWS partner uplift Standard → Advanced tier. ~$240K annual cloud savings.</div></div></div>
+      <div class="exp-item"><div class="exp-date">Dec 2013 – Nov 2019</div><div><div class="exp-company">NTT DATA Global Delivery Services</div><div class="exp-role">IT Director – Cloud Infrastructure & Security</div><div class="exp-desc">$25M savings & $50M revenue impact. Directed 100+ professionals. 60+ RFPs.</div></div></div>
+      <div class="exp-item"><div class="exp-date">2001 – 2009</div><div><div class="exp-company">Tech Mahindra (Satyam)</div><div class="exp-role">Technical Project Manager / DBA</div><div class="exp-desc">First-ever female DBA at Tech Mahindra. >99% SLA for GE, Cisco, British Petroleum. STAR Performer 6 consecutive years (5/5).</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery" style="padding-bottom:4rem">
   <div class="container" style="margin-bottom:1.5rem">
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem">
@@ -328,24 +270,20 @@ footer a{color:var(--gold);text-decoration:none}
       </div>
       <button id="editGalleryBtn" onclick="toggleGalleryEdit()" style="background:transparent;border:0.5px solid var(--gold);color:var(--gold);padding:0.55rem 1.2rem;border-radius:3px;font-size:0.8rem;font-family:'Inter',sans-serif;cursor:pointer;letter-spacing:0.05em;transition:all 0.2s">✏️ Edit Gallery</button>
     </div>
-    <p id="galleryHint" style="font-size:0.8rem;color:var(--muted);margin-top:0.8rem;display:none">Click any slot to upload a photo · Click 🗑 to remove · Drag to reorder · <span style="color:var(--gold);cursor:pointer" onclick="toggleGalleryEdit()">Done editing</span></p>
+    <p id="galleryHint" style="font-size:0.8rem;color:var(--muted);margin-top:0.8rem;display:none">Click any slot to upload · Click 🗑 to remove · Drag to reorder · <span style="color:var(--gold);cursor:pointer" onclick="toggleGalleryEdit()">Done editing</span></p>
   </div>
-
-  <!-- EDIT PANEL -->
   <div id="galleryEditPanel" style="display:none;max-width:1060px;margin:0 auto 2rem;padding:0 2rem">
     <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem"></div>
-    <div onclick="document.getElementById('galleryFileInput').click()" style="margin-top:1rem;border:1px dashed rgba(201,168,76,0.35);border-radius:4px;padding:1.2rem;display:flex;align-items:center;justify-content:center;gap:0.6rem;cursor:pointer;color:var(--muted);font-size:0.82rem;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.35)'">
+    <div onclick="document.getElementById('galleryFileInput').click()" style="margin-top:1rem;border:1px dashed rgba(201,168,76,0.35);border-radius:4px;padding:1.2rem;display:flex;align-items:center;justify-content:center;gap:0.6rem;cursor:pointer;color:var(--muted);font-size:0.82rem">
       <span style="font-size:1.3rem;color:rgba(201,168,76,0.5)">＋</span> Add more photos
     </div>
   </div>
-
   <div class="gallery-track-wrap" id="galleryScrollWrap">
     <div class="gallery-track" id="galleryTrack"></div>
   </div>
   <input type="file" id="galleryFileInput" accept="image/*" multiple/>
 </section>
 
-<!-- AWARDS -->
 <section id="awards" style="background:var(--navy2);padding:3rem 2rem">
   <div class="container">
     <div class="section-label">Recognition</div>
@@ -366,7 +304,6 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section id="testimonials" style="padding-bottom:4rem">
   <div class="container" style="margin-bottom:1.5rem">
     <div class="section-label">Kind words</div>
@@ -376,22 +313,18 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
   <div class="testi-track-wrap">
     <div class="testi-track" id="testiTrack">
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"My session with Sridevi was absolute clarity forward. She patiently listened and instantly understood what would take me 5 steps ahead. One simple solution made it easy to structure my new direction in AI strategy."</p><div class="testi-author"><div class="testi-avatar">RD</div><div><div class="testi-name">Riddhi Desai</div><div class="testi-role">AI Strategy Mentee</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"I joined with a lot of confusion. Sridevi ma'am provided clarity and guidance — she asked direct questions about my career preferences and guided me accordingly. No preaching, pure practical advice."</p><div class="testi-author"><div class="testi-avatar">IT</div><div><div class="testi-name">IT Professional</div><div class="testi-role">Career Transition Mentee</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"The AI workflows Sridevi built save our team 3–4 hours every single day. Response times improved dramatically. Her ability to bridge vision with execution is unmatched."</p><div class="testi-author"><div class="testi-avatar">ZW</div><div><div class="testi-name">Startup Founder</div><div class="testi-role">E-commerce, ZenithWorks.AI Client</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"Sridevi's Azure strategy roadmap helped us cut cloud costs by 40% in 6 months. Her technical depth combined with boardroom communication is rare and invaluable."</p><div class="testi-author"><div class="testi-avatar">VP</div><div><div class="testi-name">VP Engineering</div><div class="testi-role">FinTech Enterprise</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"The n8n automation training was outstanding — practical, immediately applicable. Within a week our team had live workflows running. Highly recommend Sridevi for any AI upskilling initiative."</p><div class="testi-author"><div class="testi-avatar">HI</div><div><div class="testi-name">Head of Innovation</div><div class="testi-role">Healthcare Group</div></div></div></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"My session with Sridevi was absolute clarity forward. She patiently listened and instantly understood what would take me 5 steps ahead. One simple solution made it easy to structure my new direction in AI strategy."</p><div class="testi-author"><div class="testi-avatar">RD</div><div><div class="testi-name">Riddhi Desai</div><div class="testi-role">AI Strategy Mentee</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"I joined with a lot of confusion. Sridevi ma'am provided clarity and guidance — she asked direct questions about my career preferences and guided me accordingly. No preaching, pure practical advice."</p><div class="testi-author"><div class="testi-avatar">IT</div><div><div class="testi-name">IT Professional</div><div class="testi-role">Career Transition Mentee</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"The AI workflows Sridevi built save our team 3–4 hours every single day. Response times improved dramatically. Her ability to bridge vision with execution is unmatched."</p><div class="testi-author"><div class="testi-avatar">ZW</div><div><div class="testi-name">Startup Founder</div><div class="testi-role">E-commerce, ZenithWorks.AI Client</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"Sridevi's Azure strategy roadmap helped us cut cloud costs by 40% in 6 months. Her technical depth combined with boardroom communication is rare and invaluable."</p><div class="testi-author"><div class="testi-avatar">VP</div><div><div class="testi-name">VP Engineering</div><div class="testi-role">FinTech Enterprise</div></div></div></div>
-      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"The n8n automation training was outstanding — practical, immediately applicable. Within a week our team had live workflows running. Highly recommend Sridevi for any AI upskilling initiative."</p><div class="testi-author"><div class="testi-avatar">HI</div><div><div class="testi-name">Head of Innovation</div><div class="testi-role">Healthcare Group</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"My session with Sridevi was absolute clarity forward. She patiently listened and instantly understood what would take me 5 steps ahead."</p><div class="testi-author"><div class="testi-avatar">RD</div><div><div class="testi-name">Riddhi Desai</div><div class="testi-role">AI Strategy Mentee</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"I joined with a lot of confusion. Sridevi ma'am provided clarity and guidance — no preaching, pure practical advice."</p><div class="testi-author"><div class="testi-avatar">IT</div><div><div class="testi-name">IT Professional</div><div class="testi-role">Career Transition Mentee</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"The AI workflows Sridevi built save our team 3–4 hours every single day. Her ability to bridge vision with execution is unmatched."</p><div class="testi-author"><div class="testi-avatar">ZW</div><div><div class="testi-name">Startup Founder</div><div class="testi-role">E-commerce, ZenithWorks.AI Client</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"Sridevi's Azure strategy roadmap helped us cut cloud costs by 40% in 6 months. Her technical depth combined with boardroom communication is rare."</p><div class="testi-author"><div class="testi-avatar">VP</div><div><div class="testi-name">VP Engineering</div><div class="testi-role">FinTech Enterprise</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"The n8n automation training was outstanding — practical, immediately applicable. Within a week our team had live workflows running."</p><div class="testi-author"><div class="testi-avatar">HI</div><div><div class="testi-name">Head of Innovation</div><div class="testi-role">Healthcare Group</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"My session with Sridevi was absolute clarity forward. She patiently listened and instantly understood what would take me 5 steps ahead."</p><div class="testi-author"><div class="testi-avatar">RD</div><div><div class="testi-name">Riddhi Desai</div><div class="testi-role">AI Strategy Mentee</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"I joined with a lot of confusion. Sridevi ma'am provided clarity and guidance — no preaching, pure practical advice."</p><div class="testi-author"><div class="testi-avatar">IT</div><div><div class="testi-name">IT Professional</div><div class="testi-role">Career Transition Mentee</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-quote">"The AI workflows Sridevi built save our team 3–4 hours every single day. Her ability to bridge vision with execution is unmatched."</p><div class="testi-author"><div class="testi-avatar">ZW</div><div><div class="testi-name">Startup Founder</div><div class="testi-role">E-commerce, ZenithWorks.AI Client</div></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="contact-inner">
@@ -399,7 +332,7 @@ footer a{color:var(--gold);text-decoration:none}
         <div class="section-label">Get in touch</div>
         <h2 class="section-title">Let's build something intelligent</h2>
         <div class="section-divider"></div>
-        <p style="color:var(--muted);font-size:0.9rem">Have a project, training need, or want to explore AI for your business? Reach out directly or book a session.</p>
+        <p style="color:var(--muted);font-size:0.9rem">Have a project, training need, or want to explore AI for your business?</p>
         <div class="contact-links">
           <a href="mailto:esridevi999@gmail.com" class="contact-link"><div class="contact-link-icon">✉️</div>esridevi999@gmail.com</a>
           <a href="mailto:info@srideviedupuganti.com" class="contact-link"><div class="contact-link-icon">🌐</div>info@srideviedupuganti.com</a>
@@ -425,7 +358,7 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="modal-box">
     <button class="modal-close" onclick="closeBooking()">✕</button>
 
-    <!-- STEP 1: Details -->
+    <!-- STEP 1 -->
     <div id="bookingStep1">
       <div class="modal-title">Book a Session</div>
       <div class="modal-sub">Fill in your details and we'll confirm your booking.</div>
@@ -433,6 +366,7 @@ footer a{color:var(--gold);text-decoration:none}
       <div class="modal-group"><label>Email *</label><input type="email" id="bEmail" placeholder="your@email.com"/></div>
       <div class="modal-group"><label>Phone Number *</label><input type="tel" id="bPhone" placeholder="+91 XXXXX XXXXX"/></div>
       <div class="modal-group"><label>Profession *</label><input type="text" id="bProfession" placeholder="e.g. Software Engineer, Entrepreneur..."/></div>
+      <div class="modal-group"><label>What would you like to learn? *</label><textarea id="bMessage" placeholder="Tell me what you'd like to learn or discuss..." style="width:100%;background:var(--card);border:0.5px solid var(--border);border-radius:3px;padding:0.65rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:0.86rem;outline:none;min-height:80px;resize:vertical"></textarea></div>
       <div class="modal-group">
         <label>Service Required *</label>
         <select id="bService" onchange="updatePrice()">
@@ -464,60 +398,48 @@ footer a{color:var(--gold);text-decoration:none}
       <button class="pay-btn" id="payBtn" style="display:none" onclick="proceedToPayment()">Proceed to Payment →</button>
     </div>
 
-    <!-- STEP 2: PhonePe QR Payment -->
+    <!-- STEP 2 -->
     <div id="bookingStep2" style="display:none">
       <div class="modal-title">Complete Payment</div>
       <div class="modal-sub" id="paymentSummary" style="margin-bottom:1.2rem"></div>
-
       <div style="background:rgba(201,168,76,0.05);border:0.5px solid rgba(201,168,76,0.2);border-radius:6px;padding:1.4rem;text-align:center">
         <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1rem">Scan to Pay via PhonePe / UPI</div>
-
-        <div id="qrContainer" style="width:180px;height:180px;margin:0 auto 1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(201,168,76,0.25);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative" onclick="document.getElementById('qrUploadInput').click()">
-          <img id="qrImg" src="" alt="PhonePe QR" style="display:none;width:100%;height:100%;object-fit:cover"/>
-          <div id="qrPlaceholder" style="display:flex;flex-direction:column;align-items:center;gap:0.4rem;padding:1rem">
-            <span style="font-size:2rem">📱</span>
-            <span style="font-size:0.68rem;color:var(--muted);text-align:center">Click to upload your PhonePe QR code</span>
-          </div>
+        <div id="qrContainer" style="width:180px;height:180px;margin:0 auto 1rem;border-radius:6px;overflow:hidden;border:1px solid rgba(201,168,76,0.25);background:var(--card)">
+          <img id="qrImg" src="https://raw.githubusercontent.com/esridevi999-cyber/sridevi-portfolio-jun/main/qr.png" alt="PhonePe QR" style="width:100%;height:100%;object-fit:cover;display:block"/>
         </div>
         <input type="file" id="qrUploadInput" accept="image/*" style="display:none"/>
-
         <div class="price-display" style="margin:0.8rem 0">
           <div><div class="price-label">Amount to pay</div></div>
           <div class="price-value" id="finalPrice"></div>
         </div>
-
         <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:1rem">Open PhonePe / GPay / any UPI app → Scan QR → Pay exact amount</p>
-
-        <!-- Step A: Last 4 digits -->
+        <!-- Step 1: Last 4 digits -->
         <div class="modal-group" style="text-align:left;margin-top:0.8rem">
           <label style="font-size:0.74rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:0.4rem">Step 1 — Last 4 digits of your UPI phone number *</label>
           <div style="display:flex;gap:0.5rem">
             <input type="tel" id="phoneLast4" maxlength="4" placeholder="e.g. 3939" style="flex:1;background:var(--card);border:0.5px solid var(--border);border-radius:3px;padding:0.65rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;letter-spacing:0.2em;outline:none;transition:border-color 0.2s;text-align:center"/>
-            <button id="verifyBtn" style="background:var(--card);border:0.5px solid var(--gold);color:var(--gold);border-radius:3px;padding:0 1rem;font-size:0.8rem;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;transition:all 0.2s">Verify</button>
+            <button id="verifyBtn" style="background:var(--card);border:0.5px solid var(--gold);color:var(--gold);border-radius:3px;padding:0 1rem;font-size:0.8rem;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif">Verify</button>
           </div>
           <p style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem">Enter the last 4 digits of the phone number you paid from</p>
           <div id="verifyMsg" style="display:none;font-size:0.78rem;margin-top:0.5rem;padding:0.5rem 0.7rem;border-radius:3px"></div>
         </div>
-
-        <!-- Step B: UTR number — shown only after phone verified -->
-        <div id="utrSection" style="display:none;text-align:left;margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--border)">
+        <!-- Step 2: UTR -->
+        <div id="utrSection" style="display:block;text-align:left;margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--border)">
           <label style="font-size:0.74rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:0.4rem">Step 2 — Enter UTR / Transaction ID *</label>
           <div style="display:flex;gap:0.5rem">
             <input type="text" id="utrInput" maxlength="20" placeholder="12-digit UTR e.g. 426812345678" style="flex:1;background:var(--card);border:0.5px solid var(--border);border-radius:3px;padding:0.65rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s"/>
-            <button id="utrVerifyBtn" style="background:var(--card);border:0.5px solid var(--gold);color:var(--gold);border-radius:3px;padding:0 1rem;font-size:0.8rem;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;transition:all 0.2s">Verify UTR</button>
+            <button id="utrVerifyBtn" style="background:var(--card);border:0.5px solid var(--gold);color:var(--gold);border-radius:3px;padding:0 1rem;font-size:0.8rem;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif">Verify UTR</button>
           </div>
-          <p style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem">Open PhonePe → Transaction History → Copy the 12-digit UTR number</p>
+          <p style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem">Open PhonePe → Transaction History → Copy the 12-digit UTR</p>
           <div id="utrMsg" style="display:none;font-size:0.78rem;margin-top:0.5rem;padding:0.5rem 0.7rem;border-radius:3px"></div>
         </div>
-
       </div>
-
       <div id="step2Error" style="display:none;color:#f87171;font-size:0.78rem;margin:0.5rem 0"></div>
-      <button class="pay-btn" id="confirmPayBtn" style="margin-top:1rem;opacity:0.4;cursor:not-allowed;transition:all 0.4s" disabled onclick="confirmPayment()">I've Paid — Confirm Booking ✓</button>
+      <button class="pay-btn" id="confirmPayBtn" style="margin-top:1rem;opacity:0.4;cursor:not-allowed;transition:all 0.4s;pointer-events:none" disabled>I've Paid — Confirm Booking ✓</button>
       <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:0.7rem;cursor:pointer" onclick="showStep1()">← Back</p>
     </div>
 
-    <!-- STEP 3: Success -->
+    <!-- STEP 3 -->
     <div id="bookingStep3" style="display:none;text-align:center;padding:1rem 0">
       <div style="font-size:3rem;margin-bottom:1rem">✅</div>
       <div class="modal-title" style="margin-bottom:0.5rem">Booking Confirmed!</div>
@@ -530,22 +452,37 @@ footer a{color:var(--gold);text-decoration:none}
 </div>
 
 <script>
+// ══════════════════════════════════════════
+// CONFIGURATION
+// ══════════════════════════════════════════
+const SUPABASE_URL  = 'https://pcbvqxgtqqsnkbmifcyb.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBjYnZxeGd0cXFzbmtibWlmY3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjczMzAsImV4cCI6MjA5NTQ0MzMzMH0.GoC7XZ_KI2pRzHFGD62014gq-gK6D6sx66xaaGknBjU';
+const EMAILJS_SVC   = 'service_5se2688';
+const EMAILJS_TPL   = 'template_38k3hv5';
+const EMAILJS_PUB   = '3PkfTdSSfeirPed9g';
+// ══════════════════════════════════════════
+
+// Load EmailJS
+(function(){
+  const s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+  s.onload = () => emailjs.init(EMAILJS_PUB);
+  document.head.appendChild(s);
+})();
+
 // ── PHOTO UPLOAD ──
 function setupUpload(inputId, imgId, iconId, hintId) {
   const input = document.getElementById(inputId);
   const img = document.getElementById(imgId);
   if (!input) return;
   input.addEventListener('change', e => {
-    const file = e.target.files[0];
-    if (!file) return;
+    const file = e.target.files[0]; if (!file) return;
     const reader = new FileReader();
     reader.onload = ev => {
       img.src = ev.target.result;
       img.style.display = 'block';
       if (iconId) document.getElementById(iconId).style.display = 'none';
       if (hintId) document.getElementById(hintId).style.display = 'none';
-      // hide the "Upload Photo" overlay bar on hero circle
-      const hint = input.closest ? null : null;
       const heroHint = document.querySelector('.hero-photo-placeholder .photo-upload-hint');
       if (heroHint) heroHint.style.display = 'none';
       if (inputId === 'profileUploadInput') {
@@ -562,8 +499,16 @@ function setupUpload(inputId, imgId, iconId, hintId) {
       img.src = saved; img.style.display = 'block';
       if (iconId) document.getElementById(iconId).style.display = 'none';
       if (hintId) document.getElementById(hintId).style.display = 'none';
+      if (inputId === 'heroUploadInput') {
+        const heroHint = document.querySelector('.hero-photo-placeholder .photo-upload-hint');
+        if (heroHint) heroHint.style.display = 'none';
+      }
+      if (inputId === 'profileUploadInput') {
+        document.getElementById('uploadIcon').style.display = 'none';
+        document.getElementById('uploadText').style.display = 'none';
+      }
     }
-  } catch(e) {}
+  } catch(e){}
 }
 setupUpload('profileUploadInput','profileImg','uploadIcon','uploadText');
 setupUpload('heroUploadInput','heroPhotoImg','heroPhotoIcon','heroPhotoHint');
@@ -573,390 +518,218 @@ function rebuildGalleryLoop() { renderScrollTrack(); }
 // ── GALLERY ──
 let galleryImages = [];
 const placeholders = [
-  {icon:'🏆',label:'Award ceremony'},
-  {icon:'🎤',label:'Speaking event'},
-  {icon:'🎓',label:'Mentoring session'},
-  {icon:'🤝',label:'Collaboration'},
-  {icon:'💼',label:'Conference'},
-  {icon:'🌟',label:'Recognition'}
+  {icon:'🏆',label:'Award ceremony'},{icon:'🎤',label:'Speaking event'},
+  {icon:'🎓',label:'Mentoring session'},{icon:'🤝',label:'Collaboration'},
+  {icon:'💼',label:'Conference'},{icon:'🌟',label:'Recognition'}
 ];
-let editMode = false;
-let dragSrc = null;
+let editMode = false, dragSrc = null;
+try { const s = localStorage.getItem('galleryImages'); if(s) galleryImages = JSON.parse(s); } catch(e){}
 
-try {
-  const saved = localStorage.getItem('galleryImages');
-  if (saved) galleryImages = JSON.parse(saved);
-} catch(e) {}
-
-function saveGallery() {
-  try { localStorage.setItem('galleryImages', JSON.stringify(galleryImages)); } catch(e) {}
-}
+function saveGallery() { try { localStorage.setItem('galleryImages', JSON.stringify(galleryImages)); } catch(e){} }
 
 function renderScrollTrack() {
   const track = document.getElementById('galleryTrack');
   track.innerHTML = '';
-  const imgs = galleryImages.length ? galleryImages : [];
-  const slots = imgs.length ? imgs : placeholders.map(p => ({placeholder:true,...p}));
-  const all = imgs.length ? imgs : slots;
-  // render originals + clones for loop
-  [...all, ...all].forEach((item, i) => {
+  const all = galleryImages.length ? galleryImages : placeholders.map(p=>({placeholder:true,...p}));
+  [...all,...all].forEach((item,i) => {
     const div = document.createElement('div');
     div.className = 'gallery-item' + (i >= all.length ? ' clone' : '');
     if (item.placeholder) {
       div.innerHTML = `<span class="gallery-placeholder-icon">${item.icon}</span><span class="gallery-placeholder-text">${item.label}</span>`;
     } else {
-      const img = document.createElement('img');
-      img.src = item;
-      div.appendChild(img);
+      const img = document.createElement('img'); img.src = item; div.appendChild(img);
     }
     track.appendChild(div);
   });
 }
 
 function renderEditGrid() {
-  const grid = document.getElementById('galleryGrid');
-  grid.innerHTML = '';
-  const slots = galleryImages.length
-    ? galleryImages.map((src,i) => ({src, idx:i}))
-    : placeholders.map((p,i) => ({placeholder:true,...p, idx:i}));
-
+  const grid = document.getElementById('galleryGrid'); grid.innerHTML = '';
+  const slots = galleryImages.length ? galleryImages.map((src,i)=>({src,idx:i})) : placeholders.map((p,i)=>({placeholder:true,...p,idx:i}));
   slots.forEach(slot => {
     const cell = document.createElement('div');
     cell.style.cssText = 'position:relative;aspect-ratio:4/3;border-radius:4px;border:1px dashed rgba(201,168,76,0.3);background:var(--card);overflow:hidden;cursor:pointer;transition:border-color 0.2s';
-    cell.draggable = true;
-    cell.dataset.idx = slot.idx;
-
+    cell.draggable = true; cell.dataset.idx = slot.idx;
     if (slot.src) {
-      const img = document.createElement('img');
-      img.src = slot.src;
-      img.style.cssText = 'width:100%;height:100%;object-fit:cover';
-      cell.appendChild(img);
-      // delete btn
-      const del = document.createElement('button');
-      del.textContent = '🗑';
-      del.style.cssText = 'position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.6);border:none;border-radius:50%;width:28px;height:28px;font-size:0.8rem;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;z-index:2';
-      del.onclick = e => { e.stopPropagation(); removeImage(slot.idx); };
-      cell.appendChild(del);
+      const img = document.createElement('img'); img.src = slot.src; img.style.cssText = 'width:100%;height:100%;object-fit:cover'; cell.appendChild(img);
+      const del = document.createElement('button'); del.textContent = '🗑';
+      del.style.cssText = 'position:absolute;top:6px;right:6px;background:rgba(0,0,0,0.6);border:none;border-radius:50%;width:28px;height:28px;font-size:0.8rem;cursor:pointer;color:#fff;z-index:2';
+      del.onclick = e => { e.stopPropagation(); removeImage(slot.idx); }; cell.appendChild(del);
     } else {
       cell.innerHTML = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:0.4rem"><span style="font-size:1.8rem;color:rgba(201,168,76,0.3)">${slot.icon||'📷'}</span><span style="font-size:0.72rem;color:var(--muted)">${slot.label||'Click to add'}</span><span style="font-size:0.68rem;color:rgba(201,168,76,0.5)">+ Upload</span></div>`;
     }
-
-    cell.addEventListener('click', () => {
-      const inp = document.createElement('input');
-      inp.type = 'file'; inp.accept = 'image/*';
-      inp.onchange = e => {
-        const file = e.target.files[0]; if(!file) return;
-        const r = new FileReader();
-        r.onload = ev => { replaceOrAddImage(slot.idx, ev.target.result); };
-        r.readAsDataURL(file);
-      };
-      inp.click();
-    });
-
-    cell.addEventListener('mouseover', () => cell.style.borderColor = 'var(--gold)');
-    cell.addEventListener('mouseout', () => cell.style.borderColor = 'rgba(201,168,76,0.3)');
-
-    // drag to reorder
-    cell.addEventListener('dragstart', e => { dragSrc = slot.idx; cell.style.opacity='0.4'; });
-    cell.addEventListener('dragend', () => cell.style.opacity='1');
-    cell.addEventListener('dragover', e => { e.preventDefault(); cell.style.borderColor='var(--gold)'; });
-    cell.addEventListener('dragleave', () => cell.style.borderColor='rgba(201,168,76,0.3)');
-    cell.addEventListener('drop', e => {
-      e.preventDefault();
-      if (dragSrc !== null && dragSrc !== slot.idx && galleryImages.length > 1) {
-        const arr = [...galleryImages];
-        const [moved] = arr.splice(dragSrc, 1);
-        arr.splice(slot.idx, 0, moved);
-        galleryImages = arr;
-        saveGallery();
-        renderEditGrid();
-        renderScrollTrack();
-      }
-    });
-
+    cell.addEventListener('click', () => { const inp = document.createElement('input'); inp.type='file'; inp.accept='image/*'; inp.onchange = e => { const file=e.target.files[0]; if(!file) return; const r=new FileReader(); r.onload=ev=>{replaceOrAddImage(slot.idx,ev.target.result);}; r.readAsDataURL(file); }; inp.click(); });
+    cell.addEventListener('mouseover',()=>cell.style.borderColor='var(--gold)');
+    cell.addEventListener('mouseout',()=>cell.style.borderColor='rgba(201,168,76,0.3)');
+    cell.addEventListener('dragstart',()=>{dragSrc=slot.idx;cell.style.opacity='0.4';});
+    cell.addEventListener('dragend',()=>cell.style.opacity='1');
+    cell.addEventListener('dragover',e=>{e.preventDefault();cell.style.borderColor='var(--gold)';});
+    cell.addEventListener('dragleave',()=>cell.style.borderColor='rgba(201,168,76,0.3)');
+    cell.addEventListener('drop',e=>{e.preventDefault();if(dragSrc!==null&&dragSrc!==slot.idx&&galleryImages.length>1){const arr=[...galleryImages];const[moved]=arr.splice(dragSrc,1);arr.splice(slot.idx,0,moved);galleryImages=arr;saveGallery();renderEditGrid();renderScrollTrack();}});
     grid.appendChild(cell);
   });
 }
 
-function replaceOrAddImage(idx, src) {
-  if (galleryImages.length === 0) {
-    galleryImages.push(src);
-  } else if (idx < galleryImages.length) {
-    galleryImages[idx] = src;
-  } else {
-    galleryImages.push(src);
-  }
-  saveGallery();
-  renderEditGrid();
-  renderScrollTrack();
+function replaceOrAddImage(idx,src){if(galleryImages.length===0){galleryImages.push(src);}else if(idx<galleryImages.length){galleryImages[idx]=src;}else{galleryImages.push(src);}saveGallery();renderEditGrid();renderScrollTrack();}
+function removeImage(idx){galleryImages.splice(idx,1);saveGallery();renderEditGrid();renderScrollTrack();}
+function toggleGalleryEdit(){
+  editMode=!editMode;
+  const btn=document.getElementById('editGalleryBtn'),panel=document.getElementById('galleryEditPanel'),sw=document.getElementById('galleryScrollWrap'),hint=document.getElementById('galleryHint');
+  if(editMode){btn.textContent='✅ Done Editing';btn.style.background='rgba(201,168,76,0.1)';panel.style.display='block';sw.style.display='none';hint.style.display='block';renderEditGrid();}
+  else{btn.textContent='✏️ Edit Gallery';btn.style.background='transparent';panel.style.display='none';sw.style.display='block';hint.style.display='none';renderScrollTrack();}
 }
-
-function removeImage(idx) {
-  galleryImages.splice(idx, 1);
-  saveGallery();
-  renderEditGrid();
-  renderScrollTrack();
-}
-
-function toggleGalleryEdit() {
-  editMode = !editMode;
-  const btn = document.getElementById('editGalleryBtn');
-  const panel = document.getElementById('galleryEditPanel');
-  const scrollWrap = document.getElementById('galleryScrollWrap');
-  const hint = document.getElementById('galleryHint');
-  if (editMode) {
-    btn.textContent = '✅ Done Editing';
-    btn.style.background = 'rgba(201,168,76,0.1)';
-    panel.style.display = 'block';
-    scrollWrap.style.display = 'none';
-    hint.style.display = 'block';
-    renderEditGrid();
-  } else {
-    btn.textContent = '✏️ Edit Gallery';
-    btn.style.background = 'transparent';
-    panel.style.display = 'none';
-    scrollWrap.style.display = 'block';
-    hint.style.display = 'none';
-    renderScrollTrack();
-  }
-}
-
-document.getElementById('galleryFileInput').addEventListener('change', e => {
-  Array.from(e.target.files).forEach(file => {
-    const r = new FileReader();
-    r.onload = ev => {
-      galleryImages.push(ev.target.result);
-      saveGallery();
-      renderEditGrid();
-      renderScrollTrack();
-    };
-    r.readAsDataURL(file);
-  });
-  e.target.value = '';
-});
-
+document.getElementById('galleryFileInput').addEventListener('change',e=>{Array.from(e.target.files).forEach(file=>{const r=new FileReader();r.onload=ev=>{galleryImages.push(ev.target.result);saveGallery();renderEditGrid();renderScrollTrack();};r.readAsDataURL(file);});e.target.value='';});
 renderScrollTrack();
-rebuildGalleryLoop();
 
-// ══════════════════════════════════════════
-// CONFIGURATION — replace these placeholders
-// ══════════════════════════════════════════
-const SUPABASE_URL    = 'https://pcbvqxgtqqsnkbmifcyb.supabase.co';
-const SUPABASE_ANON   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBjYnZxeGd0cXFzbmtibWlmY3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjczMzAsImV4cCI6MjA5NTQ0MzMzMH0.GoC7XZ_KI2pRzHFGD62014gq-gK6D6sx66xaaGknBjU';
-const EMAILJS_SVC     = 'YOUR_EMAILJS_SERVICE_ID';  // EmailJS → Email Services → Service ID
-const EMAILJS_TPL     = 'YOUR_EMAILJS_TEMPLATE_ID'; // EmailJS → Email Templates → Template ID
-const EMAILJS_PUB     = 'YOUR_EMAILJS_PUBLIC_KEY';  // EmailJS → Account → Public Key
-// ══════════════════════════════════════════
+// ── BOOKING ──
+const prices = {30:50, 60:100};
 
-// Load EmailJS SDK
-(function(){
-  const s = document.createElement('script');
-  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-  s.onload = () => emailjs.init(EMAILJS_PUB);
-  document.head.appendChild(s);
-})();
-
-// ── QR upload ──
-document.getElementById('qrUploadInput').addEventListener('change', e => {
-  const file = e.target.files[0]; if (!file) return;
-  const r = new FileReader();
-  r.onload = ev => {
-    document.getElementById('qrImg').src = ev.target.result;
-    document.getElementById('qrImg').style.display = 'block';
-    document.getElementById('qrPlaceholder').style.display = 'none';
-    try { localStorage.setItem('phonepe_qr', ev.target.result); } catch(x){}
-  };
-  r.readAsDataURL(file);
-});
-try {
-  const qr = localStorage.getItem('phonepe_qr');
-  if (qr) {
-    document.getElementById('qrImg').src = qr;
-    document.getElementById('qrImg').style.display = 'block';
-    document.getElementById('qrPlaceholder').style.display = 'none';
-  }
-} catch(x){}
-
-// ── BOOKING MODAL ──
-const prices = {30: 50, 60: 100};
-
-function openBooking() {
-  document.getElementById('bookingModal').style.display = 'flex';
-  showStep1();
-}
-function closeBooking() {
-  document.getElementById('bookingModal').style.display = 'none';
-}
-function showStep1() {
-  document.getElementById('bookingStep1').style.display = 'block';
-  document.getElementById('bookingStep2').style.display = 'none';
-  document.getElementById('bookingStep3').style.display = 'none';
-  document.getElementById('step1Error').style.display = 'none';
+function openBooking(){document.getElementById('bookingModal').style.display='flex';showStep1();}
+function closeBooking(){document.getElementById('bookingModal').style.display='none';}
+function showStep1(){
+  document.getElementById('bookingStep1').style.display='block';
+  document.getElementById('bookingStep2').style.display='none';
+  document.getElementById('bookingStep3').style.display='none';
+  document.getElementById('step1Error').style.display='none';
 }
 
-function updatePrice() {
-  const svc = document.getElementById('bService').value;
-  const dur = document.getElementById('bDuration').value;
-  const priceBox = document.getElementById('priceBox');
-  const payBtn   = document.getElementById('payBtn');
-  if (svc && dur) {
-    const amt = prices[parseInt(dur)];
-    document.getElementById('priceValue').textContent = '₹' + amt.toLocaleString('en-IN');
-    document.getElementById('priceNote').textContent  = svc + ' · ' + (dur==30?'30 mins':'1 hour');
-    priceBox.style.display = 'block';
-    payBtn.style.display   = 'block';
-  } else {
-    priceBox.style.display = 'none';
-    payBtn.style.display   = 'none';
-  }
+function updatePrice(){
+  const svc=document.getElementById('bService').value, dur=document.getElementById('bDuration').value;
+  const priceBox=document.getElementById('priceBox'), payBtn=document.getElementById('payBtn');
+  if(svc&&dur){
+    const amt=prices[parseInt(dur)];
+    document.getElementById('priceValue').textContent='₹'+amt.toLocaleString('en-IN');
+    document.getElementById('priceNote').textContent=svc+' · '+(dur==30?'30 mins':'1 hour');
+    priceBox.style.display='block'; payBtn.style.display='block';
+  } else { priceBox.style.display='none'; payBtn.style.display='none'; }
 }
 
-async function proceedToPayment() {
-  const name  = document.getElementById('bName').value.trim();
-  const email = document.getElementById('bEmail').value.trim();
-  const phone = document.getElementById('bPhone').value.trim();
-  const prof  = document.getElementById('bProfession').value.trim();
-  const svc   = document.getElementById('bService').value;
-  const dur   = document.getElementById('bDuration').value;
-  const err   = document.getElementById('step1Error');
+async function proceedToPayment(){
+  const name=document.getElementById('bName').value.trim();
+  const email=document.getElementById('bEmail').value.trim();
+  const phone=document.getElementById('bPhone').value.trim();
+  const prof=document.getElementById('bProfession').value.trim();
+  const msg=document.getElementById('bMessage').value.trim();
+  const svc=document.getElementById('bService').value;
+  const dur=document.getElementById('bDuration').value;
+  const err=document.getElementById('step1Error');
 
-  if (!name || !email || !phone || !prof || !svc || !dur) {
-    err.textContent = '⚠️ Please fill in all required fields.';
-    err.style.display = 'block'; return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    err.textContent = '⚠️ Please enter a valid email address (e.g. name@domain.com).';
-    err.style.display = 'block';
-    document.getElementById('bEmail').style.borderColor = '#f87171';
-    document.getElementById('bEmail').focus();
-    return;
-  }
-  document.getElementById('bEmail').style.borderColor = '';
-  err.style.display = 'none';
+  if(!name||!email||!phone||!prof||!svc||!dur){err.textContent='⚠️ Please fill in all required fields.';err.style.display='block';return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='⚠️ Please enter a valid email address (e.g. name@domain.com).';err.style.display='block';document.getElementById('bEmail').style.borderColor='#f87171';document.getElementById('bEmail').focus();return;}
+  document.getElementById('bEmail').style.borderColor='';err.style.display='none';
 
-  // Show saving indicator
-  const payBtn = document.getElementById('payBtn');
-  payBtn.textContent = '⏳ Saving...';
-  payBtn.disabled = true;
+  const payBtn=document.getElementById('payBtn');
+  payBtn.textContent='⏳ Saving...'; payBtn.disabled=true;
 
-  const amt = prices[parseInt(dur)];
-  const label = dur==30?'30 mins':'1 hour';
+  const amt=prices[parseInt(dur)], label=dur==30?'30 mins':'1 hour';
 
-  // 1️⃣ Save to Supabase immediately
+  // Save to Supabase immediately
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/Bookings`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': SUPABASE_ANON,
-        'Authorization': `Bearer ${SUPABASE_ANON}`,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({
-        "Name": name,
-        "email": email,
-        "Phone#": phone,
-        "Profession": prof,
-        "Service": svc,
-        "Duration_mins": parseInt(dur),
-        "Amount": amt
-      })
+    await fetch(`${SUPABASE_URL}/rest/v1/Bookings`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON,'Authorization':`Bearer ${SUPABASE_ANON}`,'Prefer':'return=minimal'},
+      body:JSON.stringify({"Name":name,"email":email,"Phone#":phone,"Profession":prof,"Service":svc,"Duration_mins":parseInt(dur),"Amount":amt,"Message":msg,"Payment_Done":false})
     });
-    if (!res.ok) throw new Error('Supabase error: ' + res.status);
-    console.log('✅ Booking saved to Supabase');
-  } catch(e) {
-    console.warn('Supabase save failed:', e);
-    // Continue anyway — don't block the user
-  }
+    console.log('✅ Saved to Supabase');
+  } catch(e){console.warn('Supabase error:',e);}
 
-  // Reset button
-  payBtn.textContent = 'Proceed to Payment →';
-  payBtn.disabled = false;
-
-  // 2️⃣ Show QR payment screen
-  document.getElementById('paymentSummary').textContent =
-    name + ' · ' + svc + ' · ' + label;
-  document.getElementById('finalPrice').textContent = '₹' + amt.toLocaleString('en-IN');
-  document.getElementById('bookingStep1').style.display = 'none';
-  document.getElementById('bookingStep2').style.display = 'block';
+  payBtn.textContent='Proceed to Payment →'; payBtn.disabled=false;
+  document.getElementById('paymentSummary').textContent=name+' · '+svc+' · '+label;
+  document.getElementById('finalPrice').textContent='₹'+amt.toLocaleString('en-IN');
+  document.getElementById('bookingStep1').style.display='none';
+  document.getElementById('bookingStep2').style.display='block';
   startScanSimulation();
 }
 
-async function confirmPayment() {
-  const btn = document.getElementById('confirmPayBtn');
-  const err = document.getElementById('step2Error');
-  err.style.display = 'none';
-  if (btn.disabled) return;
-
-  btn.disabled = true;
-  btn.textContent = '⏳ Confirming…';
-  btn.style.opacity = '0.8';
-
-  const name  = document.getElementById('bName').value.trim();
-  const email = document.getElementById('bEmail').value.trim();
-  const phone = document.getElementById('bPhone').value.trim();
-  const svc   = document.getElementById('bService').value;
-  const dur   = document.getElementById('bDuration').value;
-  const utr   = document.getElementById('utrInput').value.trim();
-  const amt   = prices[parseInt(dur)];
-  const label = dur==30?'30 mins':'1 hour';
-
-  // 1️⃣ Update Supabase — set Payment_Done = true + save UTR
-  try {
-    await fetch(`${SUPABASE_URL}/rest/v1/Bookings?email=eq.${encodeURIComponent(email)}&Service=eq.${encodeURIComponent(svc)}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': SUPABASE_ANON,
-        'Authorization': `Bearer ${SUPABASE_ANON}`,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({
-        "Payment_Done": true,
-        "Message": utr
-      })
-    });
-    console.log('✅ Supabase updated — Payment_Done = true, UTR saved');
-  } catch(e) { console.warn('Supabase update failed:', e); }
-
-  // 2️⃣ Send confirmation email via EmailJS
-  try {
-    await emailjs.send(EMAILJS_SVC, EMAILJS_TPL, {
-      to_name:  name,
-      to_email: email,
-      service:  svc,
-      duration: label,
-      amount:   '₹' + amt.toLocaleString('en-IN')
-    });
-    console.log('✅ Confirmation email sent to', email);
-  } catch(e) { console.warn('EmailJS send failed:', e); }
-
-  // 3️⃣ Update button → move to Step 3
-  btn.textContent = '✅ Booking Confirmed!';
-  btn.style.background = '#22c55e';
-  btn.style.opacity = '1';
-  await new Promise(r => setTimeout(r, 900));
-
-  document.getElementById('confirmMsg').textContent =
-    `Thank you, ${name}! Your session for "${svc}" (${label}) at ₹${amt.toLocaleString('en-IN')} is confirmed. UTR: ${utr}`;
-  document.getElementById('bookingStep2').style.display = 'none';
-  document.getElementById('bookingStep3').style.display = 'block';
+function onLast4Input(){
+  document.getElementById('verifyMsg').style.display='none';
+  document.getElementById('utrSection').style.display='none';
+  const btn=document.getElementById('confirmPayBtn');
+  btn.disabled=true; btn.style.opacity='0.4'; btn.style.cursor='not-allowed'; btn.style.pointerEvents='none'; btn.style.background='var(--gold)';
 }
 
-document.getElementById('bookingModal').addEventListener('click', e => {
-  if (e.target === document.getElementById('bookingModal')) closeBooking();
-});
+function verifyLast4(){
+  const last4=document.getElementById('phoneLast4').value.trim();
+  const actual=document.getElementById('bPhone').value.trim().replace(/\D/g,'').slice(-4);
+  const msg=document.getElementById('verifyMsg'), inp=document.getElementById('phoneLast4');
+  if(!last4||last4.length!==4){msg.textContent='⚠️ Please enter exactly 4 digits.';msg.style.display='block';msg.style.background='rgba(248,113,113,0.1)';msg.style.color='#f87171';inp.style.borderColor='#f87171';return;}
+  if(last4!==actual){msg.textContent='❌ Digits do not match your registered phone number.';msg.style.display='block';msg.style.background='rgba(248,113,113,0.1)';msg.style.color='#f87171';inp.style.borderColor='#f87171';inp.value='';inp.focus();return;}
+  msg.textContent='✅ Phone verified! Now enter your UTR number from PhonePe.';
+  msg.style.display='block'; msg.style.background='rgba(34,197,94,0.1)'; msg.style.color='#4ade80';
+  inp.style.borderColor='#4ade80';
+  document.getElementById('utrInput').focus();
+}
 
-// Wire up verify + confirm buttons after all functions are defined
-(function wireBookingEvents() {
-  const vBtn = document.getElementById('verifyBtn');
-  const utrBtn = document.getElementById('utrVerifyBtn');
-  const l4 = document.getElementById('phoneLast4');
-  const confirmBtn = document.getElementById('confirmPayBtn');
-  if (vBtn) vBtn.addEventListener('click', verifyLast4);
-  if (utrBtn) utrBtn.addEventListener('click', verifyUTR);
-  if (l4) l4.addEventListener('input', () => { l4.value = l4.value.replace(/\D/g,''); onLast4Input(); });
-  if (confirmBtn) confirmBtn.addEventListener('click', confirmPayment);
+function verifyUTR(){
+  const utr=document.getElementById('utrInput').value.trim();
+  const utrMsg=document.getElementById('utrMsg'), utrInp=document.getElementById('utrInput');
+  const btn=document.getElementById('confirmPayBtn');
+  utrMsg.style.display='none'; utrInp.style.borderColor='';
+  if(!utr||utr.length<10){utrMsg.textContent='⚠️ Please enter a valid UTR number (minimum 10 digits).';utrMsg.style.display='block';utrMsg.style.background='rgba(248,113,113,0.1)';utrMsg.style.color='#f87171';utrInp.style.borderColor='#f87171';utrInp.focus();return;}
+  utrMsg.textContent='✅ UTR verified! Tap below to confirm your booking.';
+  utrMsg.style.display='block'; utrMsg.style.background='rgba(34,197,94,0.1)'; utrMsg.style.color='#4ade80';
+  utrInp.style.borderColor='#4ade80';
+  btn.disabled=false; btn.style.opacity='1'; btn.style.cursor='pointer'; btn.style.pointerEvents='auto'; btn.style.animation='pulse 1.5s ease-in-out 3';
+}
+
+function startScanSimulation(){
+  const btn=document.getElementById('confirmPayBtn');
+  const fields=['phoneLast4','utrInput'];
+  const msgs=['verifyMsg','utrMsg'];
+  if(btn){btn.disabled=true;btn.style.opacity='0.4';btn.style.cursor='not-allowed';btn.style.pointerEvents='none';btn.style.background='var(--gold)';btn.textContent="I've Paid — Confirm Booking ✓";}
+  fields.forEach(id=>{const el=document.getElementById(id);if(el){el.value='';el.style.borderColor='';}});
+  msgs.forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none';});
+  const utrSection=document.getElementById('utrSection');if(utrSection)utrSection.style.display='block';
+  const err=document.getElementById('step2Error');if(err)err.style.display='none';
+}
+
+async function confirmPayment(){
+  const btn=document.getElementById('confirmPayBtn');
+  if(btn.disabled) return;
+  btn.disabled=true; btn.textContent='⏳ Confirming…'; btn.style.opacity='0.8';
+
+  const name=document.getElementById('bName').value.trim();
+  const email=document.getElementById('bEmail').value.trim();
+  const svc=document.getElementById('bService').value;
+  const dur=document.getElementById('bDuration').value;
+  const utr=document.getElementById('utrInput').value.trim();
+  const amt=prices[parseInt(dur)], label=dur==30?'30 mins':'1 hour';
+
+  // Update Supabase — Payment_Done = true + save UTR
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/Bookings?email=eq.${encodeURIComponent(email)}&Service=eq.${encodeURIComponent(svc)}`,{
+      method:'PATCH',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON,'Authorization':`Bearer ${SUPABASE_ANON}`,'Prefer':'return=minimal'},
+      body:JSON.stringify({"Payment_Done":true,"Message":utr})
+    });
+    console.log('✅ Supabase updated — Payment_Done=true');
+  } catch(e){console.warn('Supabase update failed:',e);}
+
+  // Send email via EmailJS
+  try {
+    await emailjs.send(EMAILJS_SVC, EMAILJS_TPL, {to_name:name, to_email:email, service:svc, duration:label, amount:'₹'+amt.toLocaleString('en-IN')});
+    console.log('✅ Email sent to',email);
+  } catch(e){console.warn('EmailJS failed:',e);}
+
+  btn.textContent='✅ Booking Confirmed!'; btn.style.background='#22c55e'; btn.style.opacity='1';
+  await new Promise(r=>setTimeout(r,900));
+  document.getElementById('confirmMsg').textContent=`Thank you, ${name}! Your session for "${svc}" (${label}) at ₹${amt.toLocaleString('en-IN')} is confirmed. UTR: ${utr}`;
+  document.getElementById('bookingStep2').style.display='none';
+  document.getElementById('bookingStep3').style.display='block';
+}
+
+document.getElementById('bookingModal').addEventListener('click',e=>{if(e.target===document.getElementById('bookingModal'))closeBooking();});
+
+// Wire all buttons via JS
+(function wireEvents(){
+  const vBtn=document.getElementById('verifyBtn');
+  const utrBtn=document.getElementById('utrVerifyBtn');
+  const l4=document.getElementById('phoneLast4');
+  const confirmBtn=document.getElementById('confirmPayBtn');
+  if(vBtn) vBtn.addEventListener('click',verifyLast4);
+  if(utrBtn) utrBtn.addEventListener('click',verifyUTR);
+  if(l4) l4.addEventListener('input',()=>{l4.value=l4.value.replace(/\D/g,'');onLast4Input();});
+  if(confirmBtn) confirmBtn.addEventListener('click',confirmPayment);
 })();
 </script>
 </body>
