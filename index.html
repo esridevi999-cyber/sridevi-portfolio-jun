@@ -488,14 +488,26 @@ footer a{color:var(--gold);text-decoration:none}
 
         <p style="font-size:0.78rem;color:var(--text2);line-height:1.6;margin-bottom:1rem">Open PhonePe / GPay / any UPI app → Scan QR → Pay exact amount</p>
 
+        <!-- Step A: Last 4 digits -->
         <div class="modal-group" style="text-align:left;margin-top:0.8rem">
-          <label style="font-size:0.74rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:0.4rem">Last 4 digits of your UPI/PhonePe phone number *</label>
+          <label style="font-size:0.74rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:0.4rem">Step 1 — Last 4 digits of your UPI phone number *</label>
           <div style="display:flex;gap:0.5rem">
             <input type="tel" id="phoneLast4" maxlength="4" placeholder="e.g. 3939" style="flex:1;background:var(--card);border:0.5px solid var(--border);border-radius:3px;padding:0.65rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:1rem;letter-spacing:0.2em;outline:none;transition:border-color 0.2s;text-align:center"/>
             <button id="verifyBtn" style="background:var(--card);border:0.5px solid var(--gold);color:var(--gold);border-radius:3px;padding:0 1rem;font-size:0.8rem;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;transition:all 0.2s">Verify</button>
           </div>
-          <p style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem">Enter the last 4 digits of the phone number you paid from, then tap Verify</p>
+          <p style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem">Enter the last 4 digits of the phone number you paid from</p>
           <div id="verifyMsg" style="display:none;font-size:0.78rem;margin-top:0.5rem;padding:0.5rem 0.7rem;border-radius:3px"></div>
+        </div>
+
+        <!-- Step B: UTR number — shown only after phone verified -->
+        <div id="utrSection" style="display:none;text-align:left;margin-top:1rem;padding-top:1rem;border-top:0.5px solid var(--border)">
+          <label style="font-size:0.74rem;color:var(--gold);letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:0.4rem">Step 2 — Enter UTR / Transaction ID *</label>
+          <div style="display:flex;gap:0.5rem">
+            <input type="text" id="utrInput" maxlength="20" placeholder="12-digit UTR e.g. 426812345678" style="flex:1;background:var(--card);border:0.5px solid var(--border);border-radius:3px;padding:0.65rem 0.9rem;color:var(--text);font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s"/>
+            <button id="utrVerifyBtn" style="background:var(--card);border:0.5px solid var(--gold);color:var(--gold);border-radius:3px;padding:0 1rem;font-size:0.8rem;cursor:pointer;white-space:nowrap;font-family:'Inter',sans-serif;transition:all 0.2s">Verify UTR</button>
+          </div>
+          <p style="font-size:0.7rem;color:var(--muted);margin-top:0.3rem">Open PhonePe → Transaction History → Copy the 12-digit UTR number</p>
+          <div id="utrMsg" style="display:none;font-size:0.78rem;margin-top:0.5rem;padding:0.5rem 0.7rem;border-radius:3px"></div>
         </div>
 
       </div>
@@ -874,7 +886,6 @@ async function confirmPayment() {
   const btn = document.getElementById('confirmPayBtn');
   const err = document.getElementById('step2Error');
   err.style.display = 'none';
-
   if (btn.disabled) return;
 
   btn.disabled = true;
@@ -883,12 +894,32 @@ async function confirmPayment() {
 
   const name  = document.getElementById('bName').value.trim();
   const email = document.getElementById('bEmail').value.trim();
+  const phone = document.getElementById('bPhone').value.trim();
   const svc   = document.getElementById('bService').value;
   const dur   = document.getElementById('bDuration').value;
+  const utr   = document.getElementById('utrInput').value.trim();
   const amt   = prices[parseInt(dur)];
   const label = dur==30?'30 mins':'1 hour';
 
-  // ✅ Send confirmation email via EmailJS AFTER payment verified
+  // 1️⃣ Update Supabase — set Payment_Done = true + save UTR
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/Bookings?email=eq.${encodeURIComponent(email)}&Service=eq.${encodeURIComponent(svc)}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON,
+        'Authorization': `Bearer ${SUPABASE_ANON}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        "Payment_Done": true,
+        "Message": utr
+      })
+    });
+    console.log('✅ Supabase updated — Payment_Done = true, UTR saved');
+  } catch(e) { console.warn('Supabase update failed:', e); }
+
+  // 2️⃣ Send confirmation email via EmailJS
   try {
     await emailjs.send(EMAILJS_SVC, EMAILJS_TPL, {
       to_name:  name,
@@ -898,19 +929,16 @@ async function confirmPayment() {
       amount:   '₹' + amt.toLocaleString('en-IN')
     });
     console.log('✅ Confirmation email sent to', email);
-  } catch(e) {
-    console.warn('EmailJS send failed:', e);
-    // Continue anyway — don't block confirmation
-  }
+  } catch(e) { console.warn('EmailJS send failed:', e); }
 
-  // ✅ Update button then move to Step 3
+  // 3️⃣ Update button → move to Step 3
   btn.textContent = '✅ Booking Confirmed!';
   btn.style.background = '#22c55e';
   btn.style.opacity = '1';
   await new Promise(r => setTimeout(r, 900));
 
   document.getElementById('confirmMsg').textContent =
-    `Thank you, ${name}! Your session for "${svc}" (${label}) at ₹${amt.toLocaleString('en-IN')} has been confirmed.`;
+    `Thank you, ${name}! Your session for "${svc}" (${label}) at ₹${amt.toLocaleString('en-IN')} is confirmed. UTR: ${utr}`;
   document.getElementById('bookingStep2').style.display = 'none';
   document.getElementById('bookingStep3').style.display = 'block';
 }
@@ -922,10 +950,12 @@ document.getElementById('bookingModal').addEventListener('click', e => {
 // Wire up verify + confirm buttons after all functions are defined
 (function wireBookingEvents() {
   const vBtn = document.getElementById('verifyBtn');
-  const l4   = document.getElementById('phoneLast4');
+  const utrBtn = document.getElementById('utrVerifyBtn');
+  const l4 = document.getElementById('phoneLast4');
   const confirmBtn = document.getElementById('confirmPayBtn');
   if (vBtn) vBtn.addEventListener('click', verifyLast4);
-  if (l4)   l4.addEventListener('input', () => { l4.value = l4.value.replace(/\D/g,''); onLast4Input(); });
+  if (utrBtn) utrBtn.addEventListener('click', verifyUTR);
+  if (l4) l4.addEventListener('input', () => { l4.value = l4.value.replace(/\D/g,''); onLast4Input(); });
   if (confirmBtn) confirmBtn.addEventListener('click', confirmPayment);
 })();
 </script>
