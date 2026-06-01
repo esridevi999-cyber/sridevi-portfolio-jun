@@ -92,7 +92,7 @@ section{padding:5rem 2rem}
 /* GALLERY */
 #gallery{background:var(--navy);overflow:hidden}
 .gallery-track-wrap{overflow:hidden;position:relative;margin-top:0}
-.gallery-track{display:flex;gap:1rem;width:max-content;animation:galleryScroll 30s linear infinite}
+.gallery-track{display:flex;gap:1rem;width:max-content;animation:galleryScroll 60s linear infinite}
 .gallery-track:hover{animation-play-state:paused}
 .gallery-item{width:220px;height:160px;border-radius:4px;border:0.5px solid var(--border);background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;flex-shrink:0;overflow:hidden;position:relative;cursor:pointer}
 .gallery-item img{width:100%;height:100%;object-fit:cover;border-radius:4px}
@@ -731,9 +731,9 @@ rebuildGalleryLoop();
 // ══════════════════════════════════════════
 const SUPABASE_URL    = 'https://pcbvqxgtqqsnkbmifcyb.supabase.co';
 const SUPABASE_ANON   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBjYnZxeGd0cXFzbmtibWlmY3liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjczMzAsImV4cCI6MjA5NTQ0MzMzMH0.GoC7XZ_KI2pRzHFGD62014gq-gK6D6sx66xaaGknBjU';
-const EMAILJS_SVC     = 'service_5se2688';  // EmailJS → Email Services → Service ID
-const EMAILJS_TPL     = 'template_38k3hv5'; // EmailJS → Email Templates → Template ID
-const EMAILJS_PUB     = '3PkfTdSSfeirPed9g';  // EmailJS → Account → Public Key
+const EMAILJS_SVC     = 'YOUR_EMAILJS_SERVICE_ID';  // EmailJS → Email Services → Service ID
+const EMAILJS_TPL     = 'YOUR_EMAILJS_TEMPLATE_ID'; // EmailJS → Email Templates → Template ID
+const EMAILJS_PUB     = 'YOUR_EMAILJS_PUBLIC_KEY';  // EmailJS → Account → Public Key
 // ══════════════════════════════════════════
 
 // Load EmailJS SDK
@@ -799,7 +799,7 @@ function updatePrice() {
   }
 }
 
-function proceedToPayment() {
+async function proceedToPayment() {
   const name  = document.getElementById('bName').value.trim();
   const email = document.getElementById('bEmail').value.trim();
   const phone = document.getElementById('bPhone').value.trim();
@@ -822,41 +822,17 @@ function proceedToPayment() {
   document.getElementById('bEmail').style.borderColor = '';
   err.style.display = 'none';
 
+  // Show saving indicator
+  const payBtn = document.getElementById('payBtn');
+  payBtn.textContent = '⏳ Saving...';
+  payBtn.disabled = true;
+
   const amt = prices[parseInt(dur)];
-  document.getElementById('paymentSummary').textContent =
-    name + ' · ' + svc + ' · ' + (dur==30?'30 mins':'1 hour');
-  document.getElementById('finalPrice').textContent = '₹' + amt.toLocaleString('en-IN');
-  document.getElementById('bookingStep1').style.display = 'none';
-  document.getElementById('bookingStep2').style.display = 'block';
-  startScanSimulation();
-}
-
-async function confirmPayment() {
-  const btn = document.getElementById('confirmPayBtn');
-  const err = document.getElementById('step2Error');
-  err.style.display = 'none';
-
-  if (btn.disabled) return; // extra guard
-
-  btn.disabled = true;
-  btn.textContent = '⏳ Processing…';
-  btn.style.opacity = '0.8';
-
-  const name  = document.getElementById('bName').value.trim();
-  const email = document.getElementById('bEmail').value.trim();
-  const phone = document.getElementById('bPhone').value.trim();
-  const prof  = document.getElementById('bProfession').value.trim();
-  const svc   = document.getElementById('bService').value;
-  const dur   = document.getElementById('bDuration').value;
-  const amt   = prices[parseInt(dur)];
   const label = dur==30?'30 mins':'1 hour';
 
-  document.querySelector('#bookingStep2 .pay-btn').textContent = 'Saving booking…';
-  document.querySelector('#bookingStep2 .pay-btn').disabled = true;
-
-  // 1️⃣ Save to Supabase
+  // 1️⃣ Save to Supabase immediately
   try {
-    await fetch(`${SUPABASE_URL}/rest/v1/Bookings`, {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/Bookings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -874,22 +850,60 @@ async function confirmPayment() {
         "Amount": amt
       })
     });
-  } catch(e) { console.warn('Supabase save failed:', e); }
+    if (!res.ok) throw new Error('Supabase error: ' + res.status);
+    console.log('✅ Booking saved to Supabase');
+  } catch(e) {
+    console.warn('Supabase save failed:', e);
+    // Continue anyway — don't block the user
+  }
 
-  // 2️⃣ Send confirmation email via EmailJS
+  // Reset button
+  payBtn.textContent = 'Proceed to Payment →';
+  payBtn.disabled = false;
+
+  // 2️⃣ Show QR payment screen
+  document.getElementById('paymentSummary').textContent =
+    name + ' · ' + svc + ' · ' + label;
+  document.getElementById('finalPrice').textContent = '₹' + amt.toLocaleString('en-IN');
+  document.getElementById('bookingStep1').style.display = 'none';
+  document.getElementById('bookingStep2').style.display = 'block';
+  startScanSimulation();
+}
+
+async function confirmPayment() {
+  const btn = document.getElementById('confirmPayBtn');
+  const err = document.getElementById('step2Error');
+  err.style.display = 'none';
+
+  if (btn.disabled) return;
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Confirming…';
+  btn.style.opacity = '0.8';
+
+  const name  = document.getElementById('bName').value.trim();
+  const email = document.getElementById('bEmail').value.trim();
+  const svc   = document.getElementById('bService').value;
+  const dur   = document.getElementById('bDuration').value;
+  const amt   = prices[parseInt(dur)];
+  const label = dur==30?'30 mins':'1 hour';
+
+  // ✅ Send confirmation email via EmailJS AFTER payment verified
   try {
     await emailjs.send(EMAILJS_SVC, EMAILJS_TPL, {
-      to_name:    name,
-      to_email:   email,
-      service:    svc,
-      duration:   label,
-      amount:     '₹' + amt.toLocaleString('en-IN'),
-      utr_id:     utr
+      to_name:  name,
+      to_email: email,
+      service:  svc,
+      duration: label,
+      amount:   '₹' + amt.toLocaleString('en-IN')
     });
-  } catch(e) { console.warn('EmailJS send failed:', e); }
+    console.log('✅ Confirmation email sent to', email);
+  } catch(e) {
+    console.warn('EmailJS send failed:', e);
+    // Continue anyway — don't block confirmation
+  }
 
-  // 3️⃣ Show confirmation
-  // ✅ Update button to confirmed state
+  // ✅ Update button then move to Step 3
   btn.textContent = '✅ Booking Confirmed!';
   btn.style.background = '#22c55e';
   btn.style.opacity = '1';
