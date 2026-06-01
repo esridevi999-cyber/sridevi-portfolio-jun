@@ -646,18 +646,34 @@ function onLast4Input(){
   document.getElementById('verifyMsg').style.display='none';
   const btn=document.getElementById('confirmPayBtn');
   btn.disabled=true; btn.style.opacity='0.4'; btn.style.cursor='not-allowed'; btn.style.pointerEvents='none'; btn.style.background='var(--gold)';
+  // keep UTR visible — just reset it
+  const utrMsg=document.getElementById('utrMsg');
+  if(utrMsg) utrMsg.style.display='none';
+  const utrInp=document.getElementById('utrInput');
+  if(utrInp) utrInp.style.borderColor='';
 }
 
 function verifyLast4(){
   const last4=document.getElementById('phoneLast4').value.trim();
   const actual=document.getElementById('bPhone').value.trim().replace(/\D/g,'').slice(-4);
   const msg=document.getElementById('verifyMsg'), inp=document.getElementById('phoneLast4');
-  if(!last4||last4.length!==4){msg.textContent='⚠️ Please enter exactly 4 digits.';msg.style.display='block';msg.style.background='rgba(248,113,113,0.1)';msg.style.color='#f87171';inp.style.borderColor='#f87171';return;}
-  if(last4!==actual){msg.textContent='❌ Digits do not match your registered phone number.';msg.style.display='block';msg.style.background='rgba(248,113,113,0.1)';msg.style.color='#f87171';inp.style.borderColor='#f87171';inp.value='';inp.focus();return;}
-  msg.textContent='✅ Phone verified! Now enter your UTR number from PhonePe.';
+  if(!last4||last4.length!==4){
+    msg.textContent='⚠️ Please enter exactly 4 digits.';
+    msg.style.display='block'; msg.style.background='rgba(248,113,113,0.1)'; msg.style.color='#f87171';
+    inp.style.borderColor='#f87171'; return;
+  }
+  if(last4!==actual){
+    msg.textContent='❌ Digits do not match your registered phone number.';
+    msg.style.display='block'; msg.style.background='rgba(248,113,113,0.1)'; msg.style.color='#f87171';
+    inp.style.borderColor='#f87171'; inp.value=''; inp.focus(); return;
+  }
+  // ✅ Phone verified
+  msg.textContent='✅ Phone verified! Now enter your UTR number below.';
   msg.style.display='block'; msg.style.background='rgba(34,197,94,0.1)'; msg.style.color='#4ade80';
   inp.style.borderColor='#4ade80';
-  document.getElementById('utrInput').focus();
+  // UTR section stays visible — just focus the input
+  const utrInp=document.getElementById('utrInput');
+  if(utrInp){ utrInp.style.borderColor='rgba(201,168,76,0.5)'; utrInp.focus(); }
 }
 
 function verifyUTR(){
